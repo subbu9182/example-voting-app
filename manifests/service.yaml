@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-new
+  namespace: kube-system
+spec:
+  type: LoadBalancer
+  selector:
+    app: aks-new
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

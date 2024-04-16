@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-new
+  labels:
+    app: aks-new
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-new
+  template:
+    metadata:
+      labels:
+        app: aks-new
+    spec:
+      containers:
+        - name: aks-new
+          image: subucicd.azurecr.io/image-workflow-1713248180329:latest
+          ports:
+            - containerPort: 80
